@@ -17,8 +17,6 @@ public class CloudVendorService {
     @GetMapping("{vendorId}")
     public CloudVendor getVendorDetails(String vendorId){
         return cloudVendor;
-               /* new CloudVendor("1","ashish",
-                "b-3-30","90909090XX");*/
     }
 
     @PostMapping
