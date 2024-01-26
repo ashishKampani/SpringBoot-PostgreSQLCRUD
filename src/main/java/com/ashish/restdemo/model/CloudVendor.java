@@ -1,8 +1,18 @@
 package com.ashish.restdemo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
+
+@Entity
+//@Table(name = "cloudVendor")
 public class CloudVendor {
 
-    private String VendorId;
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long VendorId;
 
     private String VendorName;
 
@@ -10,20 +20,21 @@ public class CloudVendor {
 
     private String VendorPhoneNumber;
 
-    public CloudVendor() { }
+    public CloudVendor() {
+    }
 
-    public CloudVendor(String vendorId, String vendorName, String vendorAddress, String vendorPhoneNumber) {
+    public CloudVendor(Long vendorId, String vendorName, String vendorAddress, String vendorPhoneNumber) {
         VendorId = vendorId;
         VendorName = vendorName;
         VendorAddress = vendorAddress;
         VendorPhoneNumber = vendorPhoneNumber;
     }
 
-    public String getVendorId() {
+    public Long getVendorId() {
         return VendorId;
     }
 
-    public void setVendorId(String vendorId) {
+    public void setVendorId(Long vendorId) {
         VendorId = vendorId;
     }
 

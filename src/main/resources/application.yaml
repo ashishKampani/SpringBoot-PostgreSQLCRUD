@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demovendor
+    driver-class-name: org.postgresql.Driver
+    username: ashish
+    password: root
+    hikari:
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+#     ddl-auto: <create | create-drop | update | validate | none>
