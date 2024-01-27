@@ -1,8 +1,11 @@
 package com.ashish.restdemo.controller;
 
 import com.ashish.restdemo.model.CloudVendor;
+import com.ashish.restdemo.response.ResponseHandler;
 import com.ashish.restdemo.service.CloudVendorAPIService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,9 +25,13 @@ public class CloudVendorController {
     private CloudVendorAPIService cloudVendorAPIService;
 
     @GetMapping("{vendorId}")
-    public CloudVendor getVendorDetails(@PathVariable("vendorId") String vendorId){
-        return cloudVendorAPIService.getCloudVendor(vendorId);
+    public ResponseEntity<Object> getVendorDetails(@PathVariable("vendorId") String vendorId){
 
+        CloudVendor objectToReturn = cloudVendorAPIService.getCloudVendor(vendorId);
+
+     return ResponseHandler.responseBuilder("Data is given here",
+             HttpStatus.OK,
+             objectToReturn);
     }
 
     @GetMapping
